@@ -17,6 +17,7 @@ public class EnemyScript : MonoBehaviour
     public float ShootTimer;
     public bool CanShoot;
     public GameObject ProjectileEnemyPrefab;
+    public GameObject Warning;
     
     void Start()
     {
@@ -41,13 +42,22 @@ public class EnemyScript : MonoBehaviour
         {
             Debug.Log("Hat error");
         }
+
+        Instantiate(Warning, new Vector3(transform.position.x, 0, transform.position.z), Quaternion.identity);
     }
 
     public void Update()
     {
+        if (God.GM.Gameover)
+        {
+            Destroy(gameObject);
+            God.GM.EnemyCount--;
+        }
+        
         if (Health <= 0)
         {
             Destroy(gameObject);
+            God.GM.EnemyCount--;
         }
         
         transform.LookAt(God.PS.transform);
@@ -124,6 +134,12 @@ public class EnemyScript : MonoBehaviour
     {
         CanShoot = false;
         ShootTimer = Random.Range(2f,7.5f);
+
+        if (God.GM.Gameover)
+        {
+            yield break;
+        }
+        
         yield return new WaitForSeconds(ShootTimer);
 
         Instantiate(ProjectileEnemyPrefab, transform.position + transform.forward,

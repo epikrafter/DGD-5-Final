@@ -1,9 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Image = UnityEngine.UI.Image;
+using Random = UnityEngine.Random;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -14,6 +17,12 @@ public class GameManagerScript : MonoBehaviour
     public List<Sprite> SelectorSprite;
     public List<Sprite> CornerSprite;
     public EnemyScript Enemy;
+    public Image GameoverImage;
+    public bool Gameover;
+    public int Wave;
+    public int EnemyCount;
+    public TextMeshProUGUI HealthText;
+    public TextMeshProUGUI WaveText;
     public void Awake()
     {
         God.GM = this;
@@ -24,15 +33,42 @@ public class GameManagerScript : MonoBehaviour
         ColorMagic = 0;
         ColorMenu = false;
         ColorSelector();
+        GameoverImage.color = Color.clear;
         
     }
 
     public void Update()
     {
+        if (God.PS.Health <= 0)
+        {
+            Gameover = true;
+            GameoverImage.color = Color.white;
+            Selector.color = Color.clear;
+            Corner.color = Color.clear;
+        }
+
+        if (Gameover)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                God.PS.Health = 5;
+                GameoverImage.color = Color.clear;
+                ColorSelector();
+                Gameover = false;
+            }
+        }
+        
         //Temp
         if (Input.GetKeyDown(KeyCode.P))
         {
             Instantiate(Enemy);
+        }
+
+        if (EnemyCount <= 0)
+        {
+            Wave++;
+            UpdateWave();
+            StartCoroutine(EnemySpawn());
         }
         
         if (Input.GetKeyDown(KeyCode.E))
@@ -194,6 +230,28 @@ public class GameManagerScript : MonoBehaviour
         {
             Selector.color = Color.clear;
             Corner.color = Color.white;
+        }
+    }
+
+    public void UpdateWave()
+    {
+        WaveText.text = "Wave: " + Wave;
+    }
+
+    public void UpdateHealth()
+    {
+        HealthText.text = "Health: " + God.PS.Health;
+    }
+    public IEnumerator EnemySpawn()
+    {
+        for (int i = 0; i < 2*(Wave-1)+1; i++)
+        {
+            float RandomX = Random.Range(-10f, 8f);
+            float RandomZ = Random.Range(-10f, 8f);
+            
+            Instantiate(Enemy,new Vector3(RandomX,25,RandomZ),Quaternion.identity);
+            EnemyCount++;
+            yield return new WaitForSeconds(Random.Range(.5f, 2f));
         }
     }
 }

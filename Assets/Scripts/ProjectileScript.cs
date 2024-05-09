@@ -15,6 +15,11 @@ public class ProjectileScript : MonoBehaviour
 
     public void Update()
     {
+        if (God.GM.Gameover)
+        {
+            Destroy(gameObject);
+        }
+        
         if (DeleteTimer > 0)
         {
             DeleteTimer -= Time.deltaTime;

@@ -2507,6 +2507,7 @@ MonoBehaviour:
   ShootTimer: 0
   CanShoot: 0
   ProjectileEnemyPrefab: {fileID: 4774869964349093206, guid: 1f28cb0631702b448993773a7c72938d, type: 3}
+  Warning: {fileID: 8428254560434124408, guid: a6310bd37fc25b04fb1e185eabd9cb1d, type: 3}
 --- !u!54 &1948973537375722330
 Rigidbody:
   m_ObjectHideFlags: 0

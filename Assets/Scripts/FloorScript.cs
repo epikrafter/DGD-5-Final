@@ -10,6 +10,16 @@ public class FloorScript : MonoBehaviour
     public Material Red;
     public Material Yellow;
     public Material Blue;
+    public Material White;
+
+    public void Update()
+    {
+        if (God.GM.Gameover)
+        {
+            Mesh.material = White;
+        }
+    }
+
     public void OnCollisionEnter(Collision other)
     {
         ProjectileScript Projectile = other.gameObject.GetComponent<ProjectileScript>();

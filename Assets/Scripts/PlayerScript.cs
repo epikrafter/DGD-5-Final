@@ -14,6 +14,7 @@ public class PlayerScript : MonoBehaviour
     public ProjectileYellowScript ProjectileYellowPrefab;
     public ProjectileBlueScript ProjectileBluePrefab;
     public int Health;
+    public float Cooldown;
 
     public void Awake()
     {
@@ -26,6 +27,12 @@ public class PlayerScript : MonoBehaviour
     }
     void Update()
     {
+        if (God.GM.Gameover)
+        {
+            RB.velocity = Vector3.zero;
+        }
+        
+        
         if (God.GM.ColorMenu == false)
         {
             float xRot = Input.GetAxis("Mouse X") * MouseSensitivity;
@@ -64,27 +71,40 @@ public class PlayerScript : MonoBehaviour
                 RB.velocity = move;
             }
 
+            if (Cooldown > 0)
+            {
+                Cooldown -= Time.deltaTime;
+            }
+            
             if (Input.GetMouseButtonDown(0))
             {
                 if (God.GM.ColorMagic == 1)
                 {
                     Instantiate(ProjectilePrefab, Eyes.transform.position + Eyes.transform.forward,
                         Eyes.transform.rotation);
+                    Cooldown = .25f;
+                }
+                if (God.GM.ColorMagic == 2)
+                {
+                    Health += 2;
                 }
                 if (God.GM.ColorMagic == 3)
                 {
                     Instantiate(ProjectileRedPrefab, Eyes.transform.position + Eyes.transform.forward,
                         Eyes.transform.rotation);
+                    Cooldown = .25f;
                 }
                 if (God.GM.ColorMagic == 4)
                 {
                     Instantiate(ProjectileYellowPrefab, Eyes.transform.position + Eyes.transform.forward,
                         Eyes.transform.rotation);
+                    Cooldown = .25f;
                 }
                 if (God.GM.ColorMagic == 5)
                 {
                     Instantiate(ProjectileBluePrefab, Eyes.transform.position + Eyes.transform.forward,
                         Eyes.transform.rotation);
+                    Cooldown = .25f;
                 }
             }
         }
@@ -101,6 +121,7 @@ public class PlayerScript : MonoBehaviour
         if (EnemyProj != null)
         {
             Health--;
+            God.GM.UpdateHealth();
         }
     }
 }

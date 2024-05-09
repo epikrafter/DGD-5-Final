@@ -52,6 +52,7 @@ MonoBehaviour:
   Red: {fileID: 2100000, guid: ce5772f5e891e984eb42c86ae14d289d, type: 2}
   Yellow: {fileID: 2100000, guid: 66628fc7328734441a48fbd15bc12c07, type: 2}
   Blue: {fileID: 2100000, guid: 31b077e30886f754db951d145a8da343, type: 2}
+  White: {fileID: 2100000, guid: 3b566aa4b3dfb0848b5e9f0adc979941, type: 2}
 --- !u!33 &5780249012677087724
 MeshFilter:
   m_ObjectHideFlags: 0
