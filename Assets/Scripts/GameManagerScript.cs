@@ -31,6 +31,7 @@ public class GameManagerScript : MonoBehaviour
     public void Start()
     {
         ColorMagic = 0;
+        Wave = 0;
         ColorMenu = false;
         ColorSelector();
         GameoverImage.color = Color.clear;
@@ -52,16 +53,11 @@ public class GameManagerScript : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 God.PS.Health = 5;
+                Wave = 0;
                 GameoverImage.color = Color.clear;
                 ColorSelector();
                 Gameover = false;
             }
-        }
-        
-        //Temp
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Instantiate(Enemy);
         }
 
         if (EnemyCount <= 0)

@@ -10,7 +10,7 @@ public class WarningScript : MonoBehaviour
 
     private void Start()
     {
-        DeathTimer = 1;
+        DeathTimer = 2;
     }
 
     void Update()
