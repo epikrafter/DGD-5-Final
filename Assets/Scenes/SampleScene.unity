@@ -1187,7 +1187,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Corner: {fileID: 1879343194}
   Selector: {fileID: 168872956}
-  Red: {fileID: 21300000, guid: 8aefb731bec04914289c298d68148679, type: 3}
+  ColorMenu: 0
+  ColorMagic: 0
+  SelectorSprite:
+  - {fileID: 21300000, guid: f7df34b82d63b4c45bfcecb7633bfd4c, type: 3}
+  - {fileID: 21300000, guid: 5853afd0c0dab464598f438386d688bd, type: 3}
+  - {fileID: 21300000, guid: 1a2f741837383984d94c75562262793a, type: 3}
+  - {fileID: 21300000, guid: 8aefb731bec04914289c298d68148679, type: 3}
+  - {fileID: 21300000, guid: ff95d539881fc1d4badeabfc29c5a4a0, type: 3}
+  - {fileID: 21300000, guid: c580e6f432531bf4a82a7b6674b5c0ad, type: 3}
+  CornerSprite:
+  - {fileID: 21300000, guid: 467a330873911c443aadc3964ddbc9ad, type: 3}
+  - {fileID: 21300000, guid: fa9c3fc454b777e4aa6ec3ae6266ee19, type: 3}
+  - {fileID: 21300000, guid: 67fa7606a8afbbe4a91966ce2fbb6bf1, type: 3}
+  - {fileID: 21300000, guid: 1d8e6ea3e467a4a48b33157c0d7c984c, type: 3}
+  - {fileID: 21300000, guid: eafb36f143105914783397a2b2bd1386, type: 3}
+  - {fileID: 21300000, guid: 0ef67160a7ebb6e4ebc5350869d849a9, type: 3}
 --- !u!4 &1041958759
 Transform:
   m_ObjectHideFlags: 0
@@ -2136,8 +2151,6 @@ MonoBehaviour:
   RB: {fileID: 1787514801}
   MouseSensitivity: 3
   WalkSpeed: 10
-  JumpPower: 7
-  Floors: []
 --- !u!4 &1787514806
 Transform:
   m_ObjectHideFlags: 0
