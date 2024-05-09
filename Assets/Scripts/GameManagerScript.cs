@@ -13,6 +13,7 @@ public class GameManagerScript : MonoBehaviour
     public int ColorMagic;
     public List<Sprite> SelectorSprite;
     public List<Sprite> CornerSprite;
+    public EnemyScript Enemy;
     public void Awake()
     {
         God.GM = this;
@@ -28,6 +29,12 @@ public class GameManagerScript : MonoBehaviour
 
     public void Update()
     {
+        //Temp
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            Instantiate(Enemy);
+        }
+        
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (ColorMenu)

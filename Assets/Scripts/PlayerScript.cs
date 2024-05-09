@@ -9,6 +9,10 @@ public class PlayerScript : MonoBehaviour
     public Rigidbody RB;
     public float MouseSensitivity = 3;
     public float WalkSpeed = 10;
+    public ProjectileScript ProjectilePrefab;
+    public ProjectileRedScript ProjectileRedPrefab;
+    public ProjectileYellowScript ProjectileYellowPrefab;
+    public ProjectileBlueScript ProjectileBluePrefab;
 
     public void Awake()
     {
@@ -57,6 +61,30 @@ public class PlayerScript : MonoBehaviour
                 move = move.normalized * WalkSpeed;
             
                 RB.velocity = move;
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (God.GM.ColorMagic == 1)
+                {
+                    Instantiate(ProjectilePrefab, Eyes.transform.position + Eyes.transform.forward,
+                        Eyes.transform.rotation);
+                }
+                if (God.GM.ColorMagic == 3)
+                {
+                    Instantiate(ProjectileRedPrefab, Eyes.transform.position + Eyes.transform.forward,
+                        Eyes.transform.rotation);
+                }
+                if (God.GM.ColorMagic == 4)
+                {
+                    Instantiate(ProjectileYellowPrefab, Eyes.transform.position + Eyes.transform.forward,
+                        Eyes.transform.rotation);
+                }
+                if (God.GM.ColorMagic == 5)
+                {
+                    Instantiate(ProjectileBluePrefab, Eyes.transform.position + Eyes.transform.forward,
+                        Eyes.transform.rotation);
+                }
             }
         }
         else
