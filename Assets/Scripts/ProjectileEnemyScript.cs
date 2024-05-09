@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileYellowScript : MonoBehaviour
+public class ProjectileEnemyScript : MonoBehaviour
 {
     public Rigidbody RB;
     public float Speed = 15;

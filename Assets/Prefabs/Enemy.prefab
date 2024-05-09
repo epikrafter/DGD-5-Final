@@ -340,7 +340,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1432916735085479019}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -353,7 +353,7 @@ Transform:
   - {fileID: 3224593281159623898}
   - {fileID: 7078010328789167067}
   m_Father: {fileID: 6725372625973687115}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!135 &7124543773836735084
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2501,6 +2501,12 @@ MonoBehaviour:
   YellowHat: {fileID: 4372903613162533578}
   BlueHat: {fileID: 6704904635423029937}
   Health: 0
+  Speed: 5
+  MaxDistance: 10
+  MinDistance: 5
+  ShootTimer: 0
+  CanShoot: 0
+  ProjectileEnemyPrefab: {fileID: 4774869964349093206, guid: 1f28cb0631702b448993773a7c72938d, type: 3}
 --- !u!54 &1948973537375722330
 Rigidbody:
   m_ObjectHideFlags: 0

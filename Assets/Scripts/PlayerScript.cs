@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour
     public ProjectileRedScript ProjectileRedPrefab;
     public ProjectileYellowScript ProjectileYellowPrefab;
     public ProjectileBlueScript ProjectileBluePrefab;
+    public int Health;
 
     public void Awake()
     {
@@ -90,6 +91,16 @@ public class PlayerScript : MonoBehaviour
         else
         {
             RB.velocity = Vector3.zero;
+        }
+    }
+
+    public void OnCollisionEnter(Collision other)
+    {
+        ProjectileEnemyScript EnemyProj = other.gameObject.GetComponent<ProjectileEnemyScript>();
+
+        if (EnemyProj != null)
+        {
+            Health--;
         }
     }
 }
